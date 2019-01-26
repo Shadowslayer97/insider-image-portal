@@ -1,0 +1,39 @@
+
+img {
+  background-color: gray;
+}
+
+.image-preview {
+  background-color: gray;
+  height:1024px;
+  width: 1024px;
+}
+
+#mainPreview {
+  height:1024px;
+  width: 1024px;
+}
+
+.childPreviewHorizontal {
+  background-color: gray;
+  height:450px;
+  width: 755px;
+}
+
+.childPreviewVertical {
+  background-color: gray;
+  height:450px;
+  width: 365px;
+}
+
+.childPreviewHorizontalSmall {
+  background-color: gray;
+  height:212px;
+  width: 365px;
+}
+
+.childPreviewGallery {
+  background-color: gray;
+  height:380px;
+  width: 380px;
+}
