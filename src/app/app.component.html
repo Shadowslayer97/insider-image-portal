@@ -1,77 +1,15 @@
-
-<!-- <div class="container"> -->
-
-  <!-- Top upload button -->
-
-  <div class="upload-button-container">
-    <button type="button" class="btn btn-success" name="button" (click)="uploadNew=!uploadNew"> Upload New Image </button>
-  </div>
-
-  <!-- Upload form modal  -->
-
-  <div class="new-upload-container" *ngIf="uploadNew">
-    <div class="choose-container">
-      <input type="file" accept="image/jpg" id="fileInput" (change)="onFileChosen(event)">
-    </div>
-    <div class="image-preview">
-      <img src="" class="image-preview" alt="" id="mainPreview">
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="col-sm-3">
-          <h3> Horizontal </h3>
-          <div class="childPreviewHorizontal">
-          </div>
-          <!-- <img src="" alt="" id="childPreview1"> -->
-          <button type="button" class="btn btn-secondary" name="button"> Edit </button>
-        </div>
-        <div class="col-sm-3">
-          <h3> Verical </h3>
-          <div class="childPreviewVertical">
-          </div>
-          <!-- <img src="" alt="" id="childPreview1"> -->
-          <button type="button" class="btn btn-secondary" name="button"> Edit </button>
-        </div>
-        <div class="col-sm-3">
-          <h3> Horizontal Small </h3>
-          <div class="childPreviewHorizontalSmall">
-          </div>
-          <!-- <img src="" alt="" id="childPreview1"> -->
-          <button type="button" class="btn btn-secondary" name="button"> Edit </button>
-        </div>
-        <div class="col-sm-3">
-          <h3> Gallery </h3>
-          <div class="childPreviewGallery">
-          </div>
-          <!-- <img src="" alt="" id="childPreview1"> -->
-          <button type="button" class="btn btn-secondary" name="button"> Edit </button>
-        </div>
+<div class="file-upload">
+    <span class="text">upload   1024 * 1024</span>
+    <input id="custom-input" type="file" (change)="fileChangeListener($event)">
+</div>
+<img-cropper #cropper [image]="data" [settings]="cropperSettings" [(cropPosition)]="cropPosition"></img-cropper>
+<br>
+<button type="button" class="btn btn-success" name="button" (click)="onImageCrop()"> CROP </button>
+<span class="result" *ngIf="data.image" >
+    <!-- <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight"> -->
+    <div class="col-sm-3">
+        <h3> Horizontal </h3>
+        <img [src]="data.image" [width]="100" [height]="100">
+        <button type="button" class="btn btn-secondary" (click)="onEditClicked()" name="button"> Edit </button>
       </div>
-      <div class="col-sm-12">
-        <button type="button" class="btn-btn-success" name="button"> Submit </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Image List Section -->
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="col-sm-2">
-        <button type="button" class="btn btn-secondary" name="button"> Refresh </button>
-      </div>
-      <div class="col-sm-10">
-        <h2> My Image List </h2>
-      </div>
-    </div>
-    <div class="col-sm-12">
-      hmmm
-    </div>
-  </div>
-
-  <div>
-        <img-cropper [image]="data" [settings]="cropperSettings"></img-cropper><br>
-        <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
-    </div>
-
-
-<!-- </div> -->
+</span>
